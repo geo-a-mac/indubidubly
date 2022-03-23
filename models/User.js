@@ -30,6 +30,14 @@ User.init(
             validate: {
                 len: [4]
             }
+        },
+        skill_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'skill',
+                key: 'id'
+            }
         }
     },
     {
@@ -40,4 +48,6 @@ User.init(
         modelName: 'user'
     }
 
-)
+);
+
+module.exports = User;
