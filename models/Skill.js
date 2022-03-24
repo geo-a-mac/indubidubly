@@ -17,7 +17,6 @@ Skill.init(
         },
         skill_type: {
             type: DataTypes.STRING,
-            allowNull: false
         }
     },
     {
