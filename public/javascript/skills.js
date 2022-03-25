@@ -1,7 +1,7 @@
 async function signupFormHandler(event) {
     event.preventDefault();
 
-    const skill = document.querySelector('#skill-add').ariaValueMax.trim();
+    const skill = document.querySelector('#skill-add').value.trim();
 
     if (skill) {
         const response = await fetch('api/user/skills', {
@@ -11,7 +11,10 @@ async function signupFormHandler(event) {
         });
 
         if (response.ok) {
-
+            console.log('success');
+          } else {
+            alert(response.statusText);
+          }
         }
     }
 
