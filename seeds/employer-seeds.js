@@ -1,4 +1,4 @@
-const Employer = require('../models');
+const { Employer } = require('../models');
 
 const employerData = [
     {
