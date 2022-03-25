@@ -1,0 +1,21 @@
+<ol class="skills-list">
+  {{#each skill}}
+  <li>
+    <article class="skill">
+      <div class="title">
+         <span>({{skill}})</span>
+      </div>
+     </article>
+  </li>
+   {{/each}}
+</ol>
+<form class="skill-form">
+  <div>
+    <label for="skill-add">Add a new skill</label>
+    <input type="text" id="skill-add" />
+  </div>
+</form>
+
+{{#if loggedIn}}
+<script src="/javascript/skills.js"></script>
+{{/if}}
