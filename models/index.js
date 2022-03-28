@@ -1,26 +1,33 @@
+const Skill = require('./Skill');
 const User = require('./User');
 const Job = require('./Job');
 const Employer = require('./Employer');
-const Skill = require('./Skill');
 const Message = require('./Message');
 
 
 // User-Skill one to many
-User.hasMany(Skill, {
-    foreignKey: 'skill_id'
+User.belongsToMany(Skill, {
+    through: 'skill_id',
+    as: 'skill'
 });
+    // foreignKey: 'skill_id'
 
-Skill.belongsTo(User, {
-    foreignKey: 'skill_id'
+
+Skill.belongsToMany(User, {
+    through: 'skill_id',
+    as: 'skill'
 });
+    // foreignKey: 'skill_id');
 
 // Skill-Job many to many
 Skill.belongsToMany(Job, {
-    foreignKey: 'skill_id'
+    through: 'skill_id',
+    as: 'jobskill'
 });
 
 Job.belongsToMany(Skill, {
-    foreignKey: 'skill_id'
+    through: 'skill_id',
+    as: 'jobskill'
 });
 
 // Employer to job one to many

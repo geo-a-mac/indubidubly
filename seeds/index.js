@@ -28,7 +28,7 @@ const seedAll = async () => {
   await seedMessages();
   console.log('All seeds complete');
 
-  process.exit();
+  process.exit(0);
 };
 
 seedAll();
