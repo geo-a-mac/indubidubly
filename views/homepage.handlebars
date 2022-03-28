@@ -1,16 +1,16 @@
-
+<div>You are on the homepage</div>
 <ol class="jobs-list">
   {{#each job}}
   <li>
     <article class="job-post">
       <div class="title">
-         <span>({{post}})</span>
+        <span>({{post}})</span>
       </div>
       <div>
         Posted by {{post.employer.username}} on
         {{post.created_at}}
-       </div>
+      </div>
     </article>
   </li>
-   {{/each}}
+  {{/each}}
 </ol>
