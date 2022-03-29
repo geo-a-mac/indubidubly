@@ -44,7 +44,7 @@ Job.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'employer'
+        modelName: 'job'
     }
 );
 
