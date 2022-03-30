@@ -3,7 +3,7 @@ const { Employer, Job, Skill} = require('../../models');
 
 router.get('/', (req, res) => {
     Employer.findAll({
-        attributes: ['username', 'email', 'url',],
+        attributes: ['id', 'username', 'email', 'url',],
         include: [
             {
                 model: Job,
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['username', 'email', 'url',],
+        attributes: ['id', 'username', 'email', 'url',],
         include: [
             {
                 model: Job,
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
     })
     .then(dbEmployerData => {
         if (!dbEmployerData) {
-          res.status(404).json({ message: 'No user found with this id' });
+          res.status(404).json({ message: 'No Employer found with this id' });
           return;
         }
         res.json(dbEmployerData);
