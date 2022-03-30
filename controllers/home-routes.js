@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Employer, Job, Message, Skill, User } = require('../models');
 
 // get all jobs for homepage
-router.get('/jobs', (req, res) => {
+router.get('/', (req, res) => {
     Job.findAll({
         attributes: [
             'id',
