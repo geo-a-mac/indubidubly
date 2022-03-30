@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indubidubly</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <div>
+    <header>
+      <h1>
+        <a href="/">Indubidubly</a>
+      </h1>
+       <img src="indubidubly/public/images/Image from iOS (1).png" al="Animated bear wearing a monacle and bow-tie">
+      <nav>
+         {{#if loggedIn}}
+        <button id="logout" class="btn">logout</button>
+         {{else}}
+         <a href="/login">login</a>
+         {{/if}}
+    </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+    <footer>
+      Indubidubly! 
+    </footer>
+  </div>
+  {{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+</body>
+
+</html>

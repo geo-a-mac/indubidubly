@@ -1,0 +1,14 @@
+<ol class="jobs-list">
+  {{#each job}}
+  <li>
+    <article class="job-post">
+      <div class="title">
+         <span>({{this.title}})</span>
+      </div>
+      <div>
+        Posted by {{employer.username}} on {{this.created_at}}
+       </div>
+    </article>
+  </li>
+   {{/each}}
+</ol>
