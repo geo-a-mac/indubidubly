@@ -9,22 +9,7 @@ const Message = require('./Message');
 User.belongsTo(Skill, {
     foreignKey: 'skill_id'
 });
-    // foreignKey: 'skill_id'
 
-
-// Skill.belongsTo(User, {
-//     foreignKey: 'skill_id'
-//     // through: 'id',
-//     // as: 'user-skill'
-// });
-    // foreignKey: 'skill_id');
-
-// Skill-Job many to many
-// Skill.belongsTo(Job, {
-//     // through: 'skill_id',
-//     // as: 'jobskill'
-//     foreignKey: 'skill_id'
-// });
 
 Job.belongsTo(Skill, {
     // through: 'skill_id',
