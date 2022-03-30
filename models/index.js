@@ -6,28 +6,30 @@ const Message = require('./Message');
 
 
 // User-Skill one to many
-User.belongsToMany(Skill, {
-    through: 'skill_id',
-    as: 'skill'
+User.belongsTo(Skill, {
+    foreignKey: 'skill_id'
 });
     // foreignKey: 'skill_id'
 
 
-Skill.belongsToMany(User, {
-    through: 'skill_id',
-    as: 'skill'
-});
+// Skill.belongsTo(User, {
+//     foreignKey: 'skill_id'
+//     // through: 'id',
+//     // as: 'user-skill'
+// });
     // foreignKey: 'skill_id');
 
 // Skill-Job many to many
-Skill.belongsToMany(Job, {
-    through: 'skill_id',
-    as: 'jobskill'
-});
+// Skill.belongsTo(Job, {
+//     // through: 'skill_id',
+//     // as: 'jobskill'
+//     foreignKey: 'skill_id'
+// });
 
-Job.belongsToMany(Skill, {
-    through: 'skill_id',
-    as: 'jobskill'
+Job.belongsTo(Skill, {
+    // through: 'skill_id',
+    // as: 'jobskill'
+    foreignKey: 'skill_id'
 });
 
 // Employer to job one to many
@@ -57,5 +59,5 @@ Employer.hasMany(Message, {
 });
 
 
-module.exports = { User, Employer, Skill, Job, Message };
+module.exports = { User, Employer, Skill, Job, Message  };
 

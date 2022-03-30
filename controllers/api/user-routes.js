@@ -3,14 +3,15 @@ const { User, Skill } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: { exclude: ['password'] },
-        // include: [
-        //     {
-        //         model: Skill,
-        //         attributes: ['skill_name', 'skill_type'],
-        //         as: 'skill'
-        //     }
-        // ]
+        attributes: ['id', 'username', 'email'],
+        include: [
+            {
+                model: Skill,
+                attributes: ['skill_name', 'skill_type'],
+                // as: 'user-skill'
+                
+            }
+        ]
     })
     .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -21,10 +22,18 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     User.findOne({
-        attributes: {exclude: ['password']},
         where: {
             id: req.params.id
-        }
+        },
+        attributes: ['id', 'username', 'email'],
+        include: [
+            {
+                model: Skill,
+                attributes: ['skill_name', 'skill_type'],
+                // as: 'user-skill'
+                
+            }
+        ]
     })
     .then(dbUserData => {
         if (!dbUserData) {
@@ -40,7 +49,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     User.create({
         username: req.body.username,
         email: req.body.email,
