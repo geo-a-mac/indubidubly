@@ -17,8 +17,7 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Skill,
-                attributes: ['id', 'skill_name', 'skill_type'],
-                as: 'jobskill'
+                attributes: ['id', 'skill_name', 'skill_type']
             },
             {
                 model: Employer,
