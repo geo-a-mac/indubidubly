@@ -1,28 +1,23 @@
-
-<body>
-  <div>
-    <header>
-      <h1>
-        <a href="/">Indubidubly</a>
-      </h1>
-      <img src="indubidubly/public/images/Image from iOS (1).png" al="Animated bear wearing a monacle and bow-tie">
-     </header>
-  </div>
-<div>
 <ol class="jobs-list">
   {{#each job}}
   <li>
     <article class="job-post">
       <div class="title">
-         <span>({{post}})</span>
+        <span>{{post}}</span>
       </div>
       <div>
-        Posted by {{post.employer.username}} on
+        Posted by {{employer.username}} on
         {{post.created_at}}
+      </div>
+    </article>
+  </li>
+  {{/each}}
+         <span>{{this.title}}</span>
+      </div>
+      <div>
+        Posted by {{employer.username}} on {{this.created_at}}
        </div>
     </article>
   </li>
    {{/each}}
 </ol>
-</div>
-</body>
