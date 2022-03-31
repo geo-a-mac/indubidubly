@@ -1,7 +1,41 @@
 /*navbar start*/
 body {
-	font-family: 'Varela Round', sans-serif;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	height: 0;
+	background-color: #ee9ca7 ;
 }
+header h1 a {
+	font-style: italic;
+	font-size:2em;
+	color:#753a88;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	padding:0%;
+  }
+  
+  .container {
+	position: relative;
+	min-height: 30vh;
+  }
+
+  .job-list .skill-list {
+	box-shadow: none;		
+	font-weight: normal;
+	font-size: 2em;
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+  }
+  .job-post title {
+     display:inline-block;
+	 border-bottom: 1px;
+	 padding: 5px 0 0 0;
+  }
+.skill-form input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+  }
 .form-control {
 	box-shadow: none;		
 	font-weight: normal;
@@ -106,8 +140,8 @@ body {
 
 /*footer to bottom*/
 #footer-bottom {
-   position:absolute;
-   bottom:0;
+	position:absolute;
+   padding-bottom:2.5rem;
    width:100%;
    height:94px;   /* Height of the footer */
 }
