@@ -14,7 +14,7 @@
   <header>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="/views/homepage.handlebars" class="navbar-brand">Indubidubly</a>
+      <a href="/" class="navbar-brand">Indubidubly</a>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -27,15 +27,14 @@
           <div class="nav-item dropdown">
             <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
             <div class="dropdown-menu">
-              <a href="/views/homepage.handlebars" class="dropdown-item">Web Design</a>
-              <a href="#" class="dropdown-item">Web Development</a>
-              <a href="#" class="dropdown-item">Graphic Design</a>
-              <a href="#" class="dropdown-item">Digital Marketing</a>
+              <a href="/" class="dropdown-item">Job Seeker</a>
+              <a href="#" class="dropdown-item">Employer</a>
+              
             </div>
           </div>
         </div>
 
-        <!-- sing in form -->
+        <!-- Log in form -->
         <div class="navbar-nav ml-auto action-buttons">
           <div class="nav-item dropdown">
             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
@@ -61,18 +60,6 @@
   </header>
 
   <!-- Page content-->
-  <div class="container">
-    <div class="text-center mt-5">
-      <div class="bg-image hover-overlay ripple">
-        <img src="/public/stylesheets/images/mg.png" class="img-fluid" />
-        <a href="#!">
-          <div class="mask" style="background-color: rgba(57, 192, 237, 0.2);"></div>
-        </a>
-      </div>
-      <header>
-        <h1>
-          <a href="/">Indubidubly</a>
-        </h1>
       </header>
       <main>
         {{{ body }}}
@@ -92,12 +79,13 @@
     <!-- Copyright -->
     <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2020 Copyright:
-      <a class="text-dark" href="https://Indubidubly.com/">Indubidubly</a>
+      <a class="text-dark" href="/">Indubidubly</a>
     </div>
     <!-- Copyright -->
   </footer>
 
-  <script src="/javascript/logout.js"></script>
+  <script src="/javascript/login.js"></script>
+  <script src="/javascript/signup.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
