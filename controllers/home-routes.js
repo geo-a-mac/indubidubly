@@ -17,8 +17,7 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Skill,
-                attributes: ['id', 'skill_name', 'skill_type'],
-                as: 'jobskill'
+                attributes: ['id', 'skill_name', 'skill_type']
             },
             {
                 model: Employer,
@@ -35,6 +34,7 @@ router.get('/', (req, res) => {
             res.status(500).json(err);
         })
 });
+
 
 // get the login page, reroute to home if already logged in
 router.get('/login', (req, res) => {
@@ -170,6 +170,5 @@ router.get('/employers/:id', (req, res) => {
         res.status(500).json(err);
       });
 });
-
 
 module.exports = router;

@@ -1,16 +1,18 @@
 const router = require('express').Router();
 const { User, Skill } = require('../../models');
+const { withUseAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: { exclude: ['password'] },
-        // include: [
-        //     {
-        //         model: Skill,
-        //         attributes: ['skill_name', 'skill_type'],
-        //         as: 'skill'
-        //     }
-        // ]
+        attributes: ['id', 'username', 'email'],
+        include: [
+            {
+                model: Skill,
+                attributes: ['skill_name', 'skill_type'],
+                // as: 'user-skill'
+                
+            }
+        ]
     })
     .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -21,10 +23,18 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     User.findOne({
-        attributes: {exclude: ['password']},
         where: {
             id: req.params.id
-        }
+        },
+        attributes: ['id', 'username', 'email'],
+        include: [
+            {
+                model: Skill,
+                attributes: ['skill_name', 'skill_type'],
+                // as: 'user-skill'
+                
+            }
+        ]
     })
     .then(dbUserData => {
         if (!dbUserData) {
@@ -40,31 +50,27 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     User.create({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
         skill_id: req.body.skill_id
     })
-    // .then(dbUserData => {
-    //     req.session.save(() => {
-    //       req.session.user_id = dbUserData.id;
-    //       req.session.username = dbUserData.username;
-    //       req.session.loggedIn = true;
+    .then(dbUserData => {
+        req.session.save(() => {
+          req.session.user_id = dbUserData.id;
+          req.session.username = dbUserData.username;
+          req.session.skill_id = dbUserData.skill_id;
+          req.session.loggedIn = true;
     
-    //       res.json(dbUserData);
-    //     });
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //     res.status(500).json(err);
-    //   });
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+          res.json(dbUserData);
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      }); 
 });
 
 router.post('/login', (req, res) => {
@@ -80,17 +86,35 @@ router.post('/login', (req, res) => {
       }
   
       const validPassword = dbUserData.checkPassword(req.body.password);
-  
+
       if (!validPassword) {
         res.status(400).json({ message: 'Incorrect password!' });
         return;
       }
   
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.skill_id = dbUserData.skill_id;
+        req.session.loggedIn = true;
+    
+        res.json({ user: dbUserData, message: 'You are now logged in!' });
+      });
     });
 });
 
-router.put('/:id', (req, res) => {
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    }
+    else {
+      res.status(404).end();
+    }
+});
+
+router.put('/:id', withUseAuth, (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -110,7 +134,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withUseAuth, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id
