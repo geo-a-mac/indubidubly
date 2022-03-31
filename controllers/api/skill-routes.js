@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Skill } = require('../../models');
+const { withAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Skill.findAll({
@@ -32,7 +33,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Skill.create({
         skill_name: req.body.skill_name,
         skill_type: req.body.skill_type
@@ -44,7 +45,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Skill.update(req.body, {
         individualHooks: true,
         where: {
