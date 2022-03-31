@@ -1,4 +1,4 @@
-const Employer = require('../models');
+const { Employer } = require('../models');
 
 const employerData = [
     {
@@ -63,6 +63,6 @@ const employerData = [
     },
 ]
 
-const seedEmployers = () => Employer.bulkCreate(employerData);
+const seedEmployers = () => Employer.bulkCreate(employerData, {individualHooks: true});
 
 module.exports = seedEmployers;

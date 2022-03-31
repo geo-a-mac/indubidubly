@@ -3,13 +3,13 @@
   <li>
     <article class="job-post">
       <div class="title">
-         <span>({{post}})</span>
+        <span>{{post}}</span>
       </div>
       <div>
-        Posted by {{post.employer.username}} on
+        Posted by {{employer.username}} on
         {{post.created_at}}
-       </div>
+      </div>
     </article>
   </li>
-   {{/each}}
+  {{/each}}
 </ol>
