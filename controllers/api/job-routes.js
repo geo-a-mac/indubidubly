@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {Employer, Job, Skill } = require('../../models');
+const { withEmpAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) =>{
     Job.findAll({
@@ -52,7 +53,7 @@ router.get('/:id', (req, res) => {
       });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withEmpAuth, (req, res) => {
     Job.create({
         title: req.body.title,
         information: req.body.information,
@@ -67,7 +68,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withEmpAuth, (req, res) => {
     Job.update(req.body, {
         individualHooks: true,
         where: {
@@ -87,7 +88,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withEmpAuth, (req, res) => {
     Job.destroy({
         where: {
             id: req.params.id

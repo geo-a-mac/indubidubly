@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Employer, Job, Skill} = require('../../models');
+const { withEmpAuth, withUseAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Employer.findAll({
@@ -59,12 +60,21 @@ router.post('/', (req, res) => {
        url: req.body.url,
        password: req.body.password,
    })
-   .then(dbEmployerData => res.json(dbEmployerData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    }); 
-})
+   .then(dbEmployerData => {
+       req.session.save(() => {
+        req.session.user_id = dbEmployerData.id;
+        req.session.username = dbEmployerData.username;
+        req.session.url = dbEmployerData.url;
+        req.session.loggedIn = true;
+ 
+        res.json(dbEmployerData);
+       });
+   })
+   .catch(err => {
+       console.log(err);
+       res.status(500).json(err);
+   });
+});
 
 router.post('/login', (req, res) => {
     Employer.findOne({
@@ -83,12 +93,29 @@ router.post('/login', (req, res) => {
           res.status(400).json({ message: 'Incorrect password!' });
           return;
         }
+        req.session.save(() => {
+            req.session.user_id = dbEmployerData.id;
+            req.session.username = dbEmployerData.username;
+            req.session.url = dbEmployerData.url;
+            req.session.loggedIn = true;
     
         res.json({ employer: dbEmployerData, message: 'You are now logged in!' });
       });
-})
+    });
+});
 
-router.put('/:id', (req, res) => {
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    }
+    else {
+      res.status(404).end();
+    }
+});
+
+router.put('/:id', withEmpAuth, (req, res) => {
     Employer.update(req.body, {
         individualHooks: true,
         where: {
@@ -108,7 +135,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withUseAuth, (req, res) => {
     Employer.destroy({
         where: {
             id: req.params.id
