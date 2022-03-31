@@ -1,15 +1,20 @@
+  <div class="container">
+    <div class="text-center mt-5">
+      <div class="bg-image hover-overlay ripple">
+        <img src="public/stylesheets/images/img.png" class="img-fluid" />
+        <a href="#!">
+          <div class="mask"></div>
+        </a>
+      </div>
+
+      <header>
+        <h1>
+          <a href="/">Indubidubly</a>
+        </h1>
 <ol class="jobs-list">
-  {{#each job}}
-  <li>
-    <article class="job-post">
-      <div class="title">
-        <span>{{post}}</span>
-      </div>
-      <div>
-        Posted by {{employer.username}} on
-        {{post.created_at}}
-      </div>
-    </article>
-  </li>
-  {{/each}}
+  {{#each job as |job|}}
+<li>
+  {{>job-info}}
+</li>
+   {{/each}}
 </ol>

@@ -17,7 +17,7 @@ async function signupFormHandler(event) {
     });
     // check the response status
     if (response.ok) {
-      console.log('success');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
@@ -48,12 +48,13 @@ async function loginFormHandler(event) {
     }
   }
 };
+function (e) {
+  e.stopPropagation();
+};
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 
 /*navbar click event*/
-$(document).on("click", ".action-buttons .dropdown-menu", function (e) {
-  e.stopPropagation();
-});
+document.querySelector('.action-buttons', '.dropdown-menu').addEventListener("click", e);

@@ -1,0 +1,18 @@
+<article class="job-post">
+      <div class="title">
+      <h2> <a href="/job/{{id}}" class="title">Job title:{{title}}</a>
+      </h2> 
+       <div> 
+        <p> Must have {{skill.skill_name}} skill </p>
+       <p> In the {{skill.skill_type}} field </p> 
+       <p> Job Details: {{information}} </p>
+       <p> Pay is: {{rate_of_pay}} </p>
+        </div>
+      </div>
+    </article>
+    <article class="employer-info">
+     <div>
+      Posted by <a href="{{employer.url}}"> {{employer.username}} </a> 
+      Contact them by emailing: <a href="mailto:{{employer.email}}">{{employer.email}}</a>
+       </div>
+</article>

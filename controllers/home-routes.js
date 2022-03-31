@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Employer, Job, Message, Skill, User } = require('../models');
 
+
 // get all jobs for homepage
 router.get('/', (req, res) => {
     Job.findAll({
@@ -64,7 +65,7 @@ router.get('/job/:id', (req, res) => {
             {
                 model: Skill,
                 attributes: ['id', 'skill_name', 'skill_type'],
-                as: 'jobskill'
+                //as: 'jobskill'
             },
             {
                 model: Employer,
@@ -79,7 +80,7 @@ router.get('/job/:id', (req, res) => {
             }
             //serialize data
             const job = dbJobData.get({plain: true});
-            res.render('job', { job, loggedIn: req.session.loggedIn });
+            res.render('job-post', { job, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);
