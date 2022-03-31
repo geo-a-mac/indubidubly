@@ -35,6 +35,7 @@ router.get('/', (req, res) => {
         })
 });
 
+
 // get the login page, reroute to home if already logged in
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -169,6 +170,5 @@ router.get('/employers/:id', (req, res) => {
         res.status(500).json(err);
       });
 });
-
 
 module.exports = router;
