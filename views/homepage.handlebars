@@ -1,9 +1,8 @@
   <div class="container">
     <div class="text-center mt-5">
       <div class="bg-image hover-overlay ripple">
-        <img src="public/stylesheets/images/img.png" class="img-fluid" />
-        <a href="#!">
-          <div class="mask"></div>
+      
+       <div class="mask"></div>
         </a>
       </div>
 
@@ -14,7 +13,7 @@
 <ol class="jobs-list">
   {{#each job as |job|}}
 <li>
-  {{>job-info}}
+  {{> job-info job}}
 </li>
    {{/each}}
 </ol>

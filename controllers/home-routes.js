@@ -74,13 +74,17 @@ router.get('/job/:id', (req, res) => {
         ]
     })
         .then(dbJobData => {
+            
             if(!dbJobData) {
                 res.status(400).json({message: 'No job found with this id'});
                 return;
             }
             //serialize data
             const job = dbJobData.get({plain: true});
-            res.render('job-post', { job, loggedIn: req.session.loggedIn });
+            console.log(job);
+            res.render('job-post', { job, loggedIn: req.session.loggedIn, 
+            employer: job.employer, 
+            skill: job.skill });
         })
         .catch(err => {
             console.log(err);
