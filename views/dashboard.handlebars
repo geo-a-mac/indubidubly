@@ -1,0 +1,25 @@
+<section>
+
+    <section>
+        <h2>Your Job Posts</h2>
+        <ol>
+
+            <li>
+                {{> job-info job}}
+                <a href=“/dashboard/edit/{{job.id}}” class=“edit-link”>Edit post</a>
+            </li>
+
+        </ol>
+    </section>
+
+    <section>
+        <section>
+            <h2>Your skills</h2>
+            <ol>
+                {{ user.skill}}
+                <li>
+                    <a href=“/dashboard/edit/{{skill.id}}” class=“edit-link”>Edit Skill</a>
+                </li>
+
+            </ol>
+        </section>

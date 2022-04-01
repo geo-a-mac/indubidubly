@@ -23,7 +23,7 @@
         <!-- Collection of nav links, forms, and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
           <div class="navbar-nav">
-            <a href="#" class="nav-item nav-link">Home</a>
+            <a href="/" class="nav-item nav-link">Home</a>
             <a href="#" class="nav-item nav-link">About</a>
             <div class="nav-item dropdown">
               <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
@@ -42,11 +42,12 @@
 
           <div class="navbar-nav ml-auto action-buttons">
             <div class="nav-item dropdown">
+              {{#if loggedIn}}
+              <button id="logout" class="btn">logout</button>
+              {{else}}
               <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
               <div class="dropdown-menu action-form">
-                {{#if loggedIn}}
-                <button id="logout" class="btn">logout</button>
-                {{else}}
+
                 {{> login}}
                 {{/if}}
               </div>
