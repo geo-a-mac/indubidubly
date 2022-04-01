@@ -26,7 +26,7 @@ async function signupFormHandler(event) {
     });
     // check the response status
     if (response.ok) {
-      document.location.replace('/');//dashboard
+      document.location.replace('/dashboard/');
     } else {
       alert(response.statusText);
     }
@@ -40,6 +40,7 @@ async function loginFormHandler(event) {
   const password = document.querySelector('#password-login').value.trim();
   const employer = document.querySelector('#employer-sign-in');
   const jobSeeker = document.querySelector('#job-seeker-sign-in');
+
 
   if(jobSeeker.checked) {
     console.log(jobSeeker.value);
@@ -55,7 +56,6 @@ async function loginFormHandler(event) {
       .then(response => {
         if(response.ok) {
           document.location.replace('/');
-          alert("success");
         } else {
           alert(response.statusText);
         }
@@ -76,8 +76,7 @@ async function loginFormHandler(event) {
      })
      .then(response => {
         if(response.ok) {
-          document.location.replace('/');
-          alert("success");
+          document.location.replace('/')
         } else {
           alert(response.statusText);
         }
