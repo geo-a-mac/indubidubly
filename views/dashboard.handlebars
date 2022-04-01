@@ -1,7 +1,7 @@
 <section>
 {{#if employerLoggedIn}}
 <section>
-  <h2>Your Posts</h2>
+  <h2>Your Job Posts</h2>
   <ol>
     {{#each job as |job|}}
     <li>
@@ -22,7 +22,6 @@
     <li>
       <a href="/dashboard/edit/{{skill.id}}" class="edit-link">Edit Skill</a>
     </li>
-    {{/each}}
   </ol>
 </section>
 {{/if}}
