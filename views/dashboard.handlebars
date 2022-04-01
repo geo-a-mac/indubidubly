@@ -1,25 +1,31 @@
+
+{{#if employerLoggedIn}}
 <section>
+  <h2>Your Posts</h2>
+  <ol>
+    {{#each job as |job|}}
+    <li>
+      {{> job-info job}}
+      <a href="/dashboard/edit/{{job.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
 
-    <section>
-        <h2>Your Job Posts</h2>
-        <ol>
+<section>
+{{#if userLoggedIn}}
+<section>
+  <h2>Your skills</h2>
+  <ol>
+    {{ user.skill}}
+    <li>
+      <a href="/dashboard/edit/{{skill.id}}" class="edit-link">Edit Skill</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
 
-            <li>
-                {{> job-info job}}
-                <a href=“/dashboard/edit/{{job.id}}” class=“edit-link”>Edit post</a>
-            </li>
+<!-- ADD This When Ready <script src="/javascript/add-job.js"></script>-->
 
-        </ol>
-    </section>
-
-    <section>
-        <section>
-            <h2>Your skills</h2>
-            <ol>
-                {{ user.skill}}
-                <li>
-                    <a href=“/dashboard/edit/{{skill.id}}” class=“edit-link”>Edit Skill</a>
-                </li>
-
-            </ol>
-        </section>
