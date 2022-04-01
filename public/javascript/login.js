@@ -17,7 +17,7 @@ async function signupFormHandler(event) {
     });
     // check the response status
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/');//dashboard
     } else {
       alert(response.statusText);
     }
@@ -38,18 +38,17 @@ async function loginFormHandler(event) {
         password
       }),
       headers: { 'Content-Type': 'application/json' }
+
     });
 
     console.log(response)
     if (response.ok) {
       document.location.replace('/');
+      alert("success")
     } else {
       alert(response.statusText);
     }
   }
-};
-function (e) {
-  e.stopPropagation();
 };
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
@@ -57,4 +56,6 @@ document.querySelector('.login-form').addEventListener('submit', loginFormHandle
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 
 /*navbar click event*/
-document.querySelector('.action-buttons', '.dropdown-menu').addEventListener("click", e);
+$(document).on("click", ".action-buttons .dropdown-menu", function (e) {
+  e.stopPropagation();
+});
