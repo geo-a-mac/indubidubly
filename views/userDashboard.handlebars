@@ -1,0 +1,23 @@
+
+{{#if loggedIn}}
+<section>
+  <h2>{{user.username}}</h2>
+  <h4>Your skill: {{user.skill.skill_name}} in the field of {{user.skill.skill_type}}</h4>
+  <p>    
+    <a href="/dashboard/edit/{{skill.id}}" class="edit-link">Edit Skill</a>
+  </p> 
+    
+ 
+</section>
+
+
+<form class="skill-form">
+  <div>
+    <label for="skill-add">Edit your Skill</label>
+    <input type="text" id="skill-edit" placeholder="edit skill" />
+  </div>
+</form>
+
+
+<script src="/javascript/skills.js"></script>
+{{/if}}

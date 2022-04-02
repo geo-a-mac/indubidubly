@@ -15,7 +15,8 @@
   <header>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="/" class="navbar-brand"><img src="stylesheets/images/img.png" class="width: 200px height: 200px;" />
+      <a class="navbar-brand">
+        <img src="stylesheets/images/img.png" class="width: 200px height: 200px;" class="navbar-brand" />
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,12 +27,19 @@
             <a href="/" class="nav-item nav-link">Home</a>
             <a href="#" class="nav-item nav-link">About</a>
             <div class="nav-item dropdown">
+<<<<<<< HEAD
+              <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Job Seeker</a>
+                <a href="/employers" class="dropdown-item">Employer</a>
+=======
               <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Profiles</a>
              <div class="dropdown-menu">
                 <a href="#" class="dropdown-item">Job Seeker</a>
                 <a href="/Employer.handlebars" class="dropdown-item">Employer</a>
               </div>
                 
+>>>>>>> develop
               </div>
             </div>
           </div>
@@ -39,15 +47,13 @@
           </div>
 
           <!-- Log in form -->
-
           <div class="navbar-nav ml-auto action-buttons">
-            <div class="nav-item dropdown">
+            <div class="nav-item dropdown" data-toggle="dropdown">
               {{#if loggedIn}}
               <button id="logout" class="btn">Logout</button>
               {{else}}
               <a data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
               <div class="dropdown-menu action-form">
-
                 {{> login}}
               
               </div>
@@ -62,13 +68,14 @@
             </div>
               {{/if}}
           </div>
+          {{/if}}
         </div>
     </nav>
   </header>
+
   <main>
     {{{ body }}}
   </main>
-
 
   <!--footer-->
   <footer class="page-footer text-center text-white navbar-light bg-light" id="footer-bottom">

@@ -34,8 +34,7 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
       })
       .then(response => {
         if(response.ok) {
-          document.location.replace('/dashboard/');
-          alert("success");
+          document.location.replace('/userdashboard');
         } else {
           alert(response.statusText);
         }
