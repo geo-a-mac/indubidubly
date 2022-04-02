@@ -1,0 +1,12 @@
+
+{{#if loggedIn}}
+<section>
+  <h2>{{user.username}}</h2>
+  <h4>Your skill: {{user.skill.skill_name}}</h4>
+  <p>    
+    <a href="/dashboard/edit/{{skill.id}}" class="edit-link">Edit Skill</a>
+  </p> 
+    
+ 
+</section>
+{{/if}}

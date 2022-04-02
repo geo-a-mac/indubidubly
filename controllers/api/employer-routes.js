@@ -66,6 +66,7 @@ router.post('/', (req, res) => {
         req.session.username = dbEmployerData.username;
         req.session.url = dbEmployerData.url;
         req.session.loggedIn = true;
+        req.session.employerLoggedIn = true;
  
         res.json(dbEmployerData);
        });
@@ -98,6 +99,7 @@ router.post('/login', (req, res) => {
             req.session.username = dbEmployerData.username;
             req.session.url = dbEmployerData.url;
             req.session.loggedIn = true;
+            req.session.employerLoggedIn = true;
     
         res.json({ employer: dbEmployerData, message: 'You are now logged in!' });
       });
