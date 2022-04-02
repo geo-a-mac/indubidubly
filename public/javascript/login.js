@@ -8,14 +8,24 @@ async function signupFormHandler(event) {
   const employer = document.querySelector('#employer').value;
   const jobSeeker = document.querySelector('#job-seeker').value;
 
-//const url = document.querySelector('#employerURL').value;
-skillId = document.querySelector('#job-seeker-skill').value;
+const url = document.querySelector('#employerURL').value;
+const skillId = document.querySelector('#job-seeker-skill').value;
+
+// const javaScript = document.querySelector('#skillId1').value;
+// const cHashtag = document.querySelector('skillId2').value;
+// const frontEnd = document.querySelector('#skillId3').value;
+// const backEnd = document.querySelector('#skillId4').value;
+// const agile = document.querySelector('#skillId5').value;
+// const projectManagement = document.querySelector('#skillId6').value;
+// const Nodejs = document.querySelector('#skillId7').value;
+// const MySQL = document.querySelector('#skillId8').value;
+// const sequelize = document.querySelector('#skillId9').value;
 
 console.log(jobSeeker);
 
-  if(jobSeeker === "jobSeeker") {
-    console.log("job-seeker");
-    if (username && email && password) {
+  if(jobSeeker === "Job Seeker") {
+    console.log("user");
+    if (username && email && password && skillId) {
       const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
@@ -37,6 +47,25 @@ console.log(jobSeeker);
   } 
   else if (employer === "Employer") {
     console.log("employer");
+    if (username && email && password && url) {
+      const response = await fetch('/api/employers', {
+        method: 'post',
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+          url,
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      // check the response status
+      if (response.ok) {
+        document.location.replace('/dashboard');
+        return;
+      } else {
+        alert(response.statusText);
+      }
+    }
   }
   console.log("test");
   // if (username && email && password) {
