@@ -4,33 +4,58 @@ async function signupFormHandler(event) {
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
+
   const employer = document.querySelector('#employer').value;
   const jobSeeker = document.querySelector('#job-seeker').value;
 
-  if(jobSeeker.value === "Job Seeker") {
+//const url = document.querySelector('#employerURL').value;
+skillId = document.querySelector('#job-seeker-skill').value;
+
+console.log(jobSeeker);
+
+  if(jobSeeker === "jobSeeker") {
     console.log("job-seeker");
+    if (username && email && password) {
+      const response = await fetch('/api/users', {
+        method: 'post',
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+          skillId,
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      // check the response status
+      if (response.ok) {
+        document.location.replace('/dashboard');
+        return;
+      } else {
+        alert(response.statusText);
+      }
+    }
   } 
   else if (employer === "Employer") {
     console.log("employer");
   }
-  
-  if (username && email && password) {
-    const response = await fetch('/api/users', {
-      method: 'post',
-      body: JSON.stringify({
-        username,
-        email,
-        password
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
-    // check the response status
-    if (response.ok) {
-      document.location.replace('/dashboard');//dashboard
-    } else {
-      alert(response.statusText);
-    }
-  }
+  console.log("test");
+  // if (username && email && password) {
+  //   const response = await fetch('/api/users', {
+  //     method: 'post',
+  //     body: JSON.stringify({
+  //       username,
+  //       email,
+  //       password
+  //     }),
+  //     headers: { 'Content-Type': 'application/json' }
+  //   });
+  //   // check the response status
+  //   if (response.ok) {
+  //     document.location.replace('/dashboard');
+  //   } else {
+  //     alert(response.statusText);
+  //   }
+  // }
 }
 
 async function loginFormHandler(event) {
@@ -40,6 +65,7 @@ async function loginFormHandler(event) {
   const password = document.querySelector('#password-login').value.trim();
   const employer = document.querySelector('#employer-sign-in');
   const jobSeeker = document.querySelector('#job-seeker-sign-in');
+
 
   if(jobSeeker.checked) {
     console.log(jobSeeker.value);
