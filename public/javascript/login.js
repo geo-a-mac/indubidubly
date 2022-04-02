@@ -7,13 +7,13 @@ async function signupFormHandler(event) {
   const employer = document.querySelector('#employer').value;
   const jobSeeker = document.querySelector('#job-seeker').value;
 
-  if(jobSeeker.value === "Job Seeker") {
+  if (jobSeeker.value === "Job Seeker") {
     console.log("job-seeker");
-  } 
+  }
   else if (employer === "Employer") {
     console.log("employer");
   }
-  
+
   if (username && email && password) {
     const response = await fetch('/api/users', {
       method: 'post',
@@ -42,48 +42,48 @@ async function loginFormHandler(event) {
   const jobSeeker = document.querySelector('#job-seeker-sign-in');
 
 
-  if(jobSeeker.checked) {
+  if (jobSeeker.checked) {
     console.log(jobSeeker.value);
-    if(email && password) {
+    if (email && password) {
       const response = await fetch('/api/users/login', {
         method: 'post',
         body: JSON.stringify({
           email,
           password
         }),
-        headers: { 'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
       })
-      .then(response => {
-        if(response.ok) {
-          document.location.replace('/');
-        } else {
-          alert(response.statusText);
-        }
+        .then(response => {
+          if (response.ok) {
+            document.location.replace('dashboard');
+          } else {
+            alert(response.statusText);
+          }
+        })
+        .catch(err => console.log(err));
+    }
+  }
+  if (employer.checked) {
+    console.log(employer.value);
+    if (email && password) {
+      const response = await fetch('/api/employers/login', {
+        method: 'post',
+        body: JSON.stringify({
+          email,
+          password
+        }),
+        headers: { 'Content-Type': 'application/json' }
       })
-      .catch(err => console.log(err));
-  }  
- } 
- if (employer.checked) {
-   console.log(employer.value);
-   if(email && password) {
-     const response = await fetch('/api/employers/login', {
-       method: 'post',
-       body: JSON.stringify({
-         email,
-         password
-       }),
-       headers: {'Content-Type': 'application/json'}
-     })
-     .then(response => {
-        if(response.ok) {
-          document.location.replace('/')
-        } else {
-          alert(response.statusText);
-        }
-     })
-     .catch(err => console.log(err));
-   }
- }
+        .then(response => {
+          if (response.ok) {
+            document.location.replace('dashboard')
+          } else {
+            alert(response.statusText);
+          }
+        })
+        .catch(err => console.log(err));
+    }
+  }
 };
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
