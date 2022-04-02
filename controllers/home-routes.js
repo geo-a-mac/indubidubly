@@ -47,6 +47,11 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/signup-jobseeker', (req, res) => {
+    res.render('skills');
+    return;
+});
+
 // get a job by id
 router.get('/job/:id', (req, res) => {
     Job.findOne({
