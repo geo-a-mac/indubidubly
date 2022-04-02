@@ -5,29 +5,47 @@
     </div>
      <div class="form-group">
          <label>
-        <span>Employer</span> <input type="radio" value="employer" name="usertype-signup" id="employer" class="form-control" required="required">
+        <span>Employer</span> <input type="radio" value="employer" name="usertype-signup" id="employer" class="form-control radio" required="required">
         </label>
         </div>
- <div class="form-group">
-        <label>
-        <span>Job Seeker</span> <input type="radio" value="jobSeeker" name="usertype-signup" id="job-seeker" class="form-control" required="required">
-         </label>
-    </div>
-    <div>
-         <li class="divider "></li>
-              <li class="dropdown-submenu dropleft">
-                <a href="#">Choose a Skill</a>
-                <ul class="dropdown-menu dropleft">
-                  <li><a href="#">Skill 1</a></li>
-                       <li><a href="#">Skill 1</a></li>
-                    	<li><a href="#">Skill 1</a></li>
-        <li><a href="#"value="skillId3">Skill 3</a></li>
-         </ul>
-            
-    </div>
-    <div class="form-group">
+         <div class="form-group">
         <input type="text" id="url-signup" class="form-control" placeholder="Employer URL">
     </div>
+ <div class="form-group">
+        <label>
+        <span>Job Seeker</span> <input type="radio" value="jobSeeker" name="usertype-signup" id="job-seeker" class="form-control radio" required="required">
+         </label>
+      <div>
+         <li class="divider ">
+              <li class="dropdown-submenu dropleft">
+              <a href="#">Job Seeker Skill</a>
+            <ul class="dropdown-menu row">
+               <li><input type="radio" value="skillId1" id="skillId1" 
+               name="skill">Javascript</li>
+              <li><input type="radio" value="skillId2" id="skillId2" 
+              name="skill">C#</li>
+             <li><input type="radio" value="skillId3"id="skillId3"
+              name="skill">Front End Development</li>
+              <li><input type="radio" value="skillId4"id="skillId4"
+              name="skill">Back End Development</li>
+             <li><input type="radio" value="skillId5"id="skillId5"
+             name="skill">Agile</li>
+              <li><input type="radio" value="skillId6"id="skillId6"
+              name="skill">Project Management</li>
+             <li><input type="radio" value="skillId7"id="skillId7"
+             name="skill">Node.js</li>
+              <li><input type="radio" value="skillId8"id="skillId8"
+              name="skill">Object-Oriented Programming</li>
+              <li><input type="radio" value="skillId9"id="skillId9"
+              name="skill">MySQL</li>
+              <li><input type="radio" value="skillId10"id="skillId10"
+              name="skill">Sequelize</li>
+             
+         </ul>
+         </li>
+    </div>
+    </div>
+   
     <div class="form-group">
         <input type="text" id="email-signup" class="form-control" placeholder="Email" required="required">
     </div>
