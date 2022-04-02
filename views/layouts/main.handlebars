@@ -45,21 +45,22 @@
               {{#if loggedIn}}
               <button id="logout" class="btn">Logout</button>
               {{else}}
-              <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
+              <a data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
               <div class="dropdown-menu action-form">
 
                 {{> login}}
-                {{/if}}
+              
               </div>
             </div>
 
             <!-- sign up form -->
             <div class="nav-item dropdown">
-              <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Sign up</a>
+              <a data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Sign up</a>
               <div class="dropdown-menu action-form">
                 {{> signup}}
               </div>
             </div>
+              {{/if}}
           </div>
         </div>
     </nav>
@@ -90,7 +91,9 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="/javascript/logout.js"></script>
+  {{#unless loggedIn}}
   <script src="/javascript/login.js"></script>
+  {{/unless}}
 </body>
 
 </html>
