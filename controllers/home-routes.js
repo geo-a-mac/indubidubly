@@ -123,17 +123,21 @@ router.get('/employers', (req, res) => {
         ],
         include: [{
             model: Job,
-            attributes: ['id', 'title', 'information', 'rate_of_pay', 'skill_id']
+            attributes: ['id', 'title', 'information', 'rate_of_pay', 'skill_id'],
+            include: [
+                {
+                    model: Skill,
+                    attributes: ['id', 'skill_name', 'skill_type']
+                }
+            ]
         },
-        {
-            model: Skill,
-            attributes: ['id', 'skill_name', 'skill_type']
-        }
+        
     ]
     })
     .then(dbEmployerData => {
-        const employers = dbEmployerData(employer => employer.get({plain: true}));
-        res.render('employers', { employers, loggedIn: req.session.logedIn});
+        const employers = dbEmployerData.map(employer => employer.get({plain: true}));
+        console.log(employers);
+        res.render('employer', { employers, loggedIn: req.session.logedIn});
     })
     .catch(err => {
         console.log(err);
