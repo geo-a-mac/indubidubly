@@ -27,10 +27,19 @@
             <a href="/" class="nav-item nav-link">Home</a>
             <a href="#" class="nav-item nav-link">About</a>
             <div class="nav-item dropdown">
+<<<<<<< HEAD
               <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
               <div class="dropdown-menu">
                 <a href="#" class="dropdown-item">Job Seeker</a>
                 <a href="/employers" class="dropdown-item">Employer</a>
+=======
+              <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Profiles</a>
+             <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Job Seeker</a>
+                <a href="/Employer.handlebars" class="dropdown-item">Employer</a>
+              </div>
+                
+>>>>>>> develop
               </div>
             </div>
           </div>
@@ -41,22 +50,23 @@
           <div class="navbar-nav ml-auto action-buttons">
             <div class="nav-item dropdown" data-toggle="dropdown">
               {{#if loggedIn}}
-              <button id="logout" class="btn dropdown-item">logout</button>
+              <button id="logout" class="btn">Logout</button>
               {{else}}
               <a data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
               <div class="dropdown-menu action-form">
                 {{> login}}
-                
+              
               </div>
             </div>
 
             <!-- sign up form -->
             <div class="nav-item dropdown">
-              <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Sign up</a>
+              <a data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Sign up</a>
               <div class="dropdown-menu action-form">
                 {{> signup}}
               </div>
             </div>
+              {{/if}}
           </div>
           {{/if}}
         </div>
@@ -88,7 +98,9 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="/javascript/logout.js"></script>
+  {{#unless loggedIn}}
   <script src="/javascript/login.js"></script>
+  {{/unless}}
 </body>
 
 </html>

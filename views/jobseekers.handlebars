@@ -1,4 +1,4 @@
-  <div class="container">
+ <div class="container">
     <div class="text-center mt-5">
       <div class="bg-image hover-overlay ripple">
       
@@ -10,15 +10,10 @@
         <h1>
           <a href="/">Indubidubly</a>
         </h1>
-        </header>
-      </div>
-    </div>
-</div>
-
 <ol class="jobs-list">
-  {{#each job as |job|}}
+  {{#each user as |user|}}
 <li>
-  {{> job-info job}}
+  <p>{{username}} has {{skill.skill_name}} skills ({{skill.skill_type}}. Contact at: <a href="mailto:{{email}}">{{email}}</a></p>
 </li>
    {{/each}}
 </ol>
