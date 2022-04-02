@@ -47,9 +47,29 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.get('/signup-jobseeker', (req, res) => {
-    res.render('skills');
-    return;
+router.get('/jobseekers', (req, res) => {
+    User.findAll({
+        attributes: [
+            'id',
+            'username',
+            'email',
+            'skill_id'
+        ],
+        include: [
+            {
+                model: Skill,
+                attributes: ['id', 'skill_name', 'skill_type']
+            }
+        ]
+    })
+        .then(dbUserData => {
+            const user = dbUserData.map(user => user.get({plain:true}));
+            res.render('jobseekers', {user});
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
 });
 
 // get a job by id
