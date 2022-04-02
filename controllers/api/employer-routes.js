@@ -54,26 +54,28 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    Employer.create({
-        username: req.body.username,
-        email: req.body.email,
-        url: req.body.url,
-        password: req.body.password,
-    })
-        .then(dbEmployerData => {
-            req.session.save(() => {
-                req.session.user_id = dbEmployerData.id;
-                req.session.username = dbEmployerData.username;
-                req.session.url = dbEmployerData.url;
-                req.session.loggedIn = true;
+   Employer.create({
+       username: req.body.username,
+       email: req.body.email,
+       url: req.body.url,
+       password: req.body.password,
+   })
+   .then(dbEmployerData => {
+       req.session.save(() => {
+        req.session.user_id = dbEmployerData.id;
+        req.session.username = dbEmployerData.username;
+        req.session.url = dbEmployerData.url;
+        req.session.loggedIn = true;
+        req.session.employerLoggedIn = true;
+ 
+        res.json(dbEmployerData);
+       });
+   })
+   .catch(err => {
+       console.log(err);
+       res.status(500).json(err);
+   });
 
-                res.json(dbEmployerData);
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
 });
 
 router.post('/login', (req, res) => {
@@ -99,8 +101,11 @@ router.post('/login', (req, res) => {
             req.session.url = dbEmployerData.url;
             req.session.loggedIn = true;
 
-            res.json({ employer: dbEmployerData, message: 'You are now logged in!' });
-        });
+            req.session.employerLoggedIn = true;
+    
+        res.json({ employer: dbEmployerData, message: 'You are now logged in!' });
+      });
+
     });
 });
 
@@ -135,7 +140,7 @@ router.put('/:id', withEmpAuth, (req, res) => {
         });
 });
 
-router.delete('/:id', withUseAuth, (req, res) => {
+router.delete('/:id', withEmpAuth, (req, res) => {
     Employer.destroy({
         where: {
             id: req.params.id

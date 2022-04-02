@@ -53,37 +53,37 @@ async function loginFormHandler(event) {
         }),
         headers: { 'Content-Type': 'application/json' }
       })
-        .then(response => {
-          if (response.ok) {
-            document.location.replace('dashboard');
-          } else {
-            alert(response.statusText);
-          }
-        })
-        .catch(err => console.log(err));
-    }
-  }
-  if (employer.checked) {
-    console.log(employer.value);
-    if (email && password) {
-      const response = await fetch('/api/employers/login', {
-        method: 'post',
-        body: JSON.stringify({
-          email,
-          password
-        }),
-        headers: { 'Content-Type': 'application/json' }
+      .then(response => {
+        if(response.ok) {
+          document.location.replace('/userdashboard');
+        } else {
+          alert(response.statusText);
+        }
       })
-        .then(response => {
-          if (response.ok) {
-            document.location.replace('dashboard')
-          } else {
-            alert(response.statusText);
-          }
-        })
-        .catch(err => console.log(err));
-    }
-  }
+      .catch(err => console.log(err));
+  }  
+ } 
+ if (employer.checked) {
+   console.log(employer.value);
+   if(email && password) {
+     const response = await fetch('/api/employers/login', {
+       method: 'post',
+       body: JSON.stringify({
+         email,
+         password
+       }),
+       headers: {'Content-Type': 'application/json'}
+     })
+     .then(response => {
+        if(response.ok) {
+          document.location.replace('/empdashboard')
+        } else {
+          alert(response.statusText);
+        }
+     })
+     .catch(err => console.log(err));
+   }
+ }
 };
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

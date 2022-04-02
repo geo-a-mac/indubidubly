@@ -63,6 +63,7 @@ router.post('/', (req, res) => {
           req.session.username = dbUserData.username;
           req.session.skill_id = dbUserData.skill_id;
           req.session.loggedIn = true;
+          req.session.userLoggedIn = true;
     
           res.json(dbUserData);
         });
@@ -97,6 +98,7 @@ router.post('/login', (req, res) => {
         req.session.username = dbUserData.username;
         req.session.skill_id = dbUserData.skill_id;
         req.session.loggedIn = true;
+        req.session.userLoggedIn = true;
     
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
