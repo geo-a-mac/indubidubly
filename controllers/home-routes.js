@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Employer, Job, Message, Skill, User } = require('../models');
+const { Employer, Job, Skill, User } = require('../models');
 
 
 // get all jobs for homepage
