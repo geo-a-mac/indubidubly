@@ -21,4 +21,4 @@ Indubidubly is a web based app designed to connect
 
 ### URLS
 Github: https://github.com/geo-a-mac/indubidubly
-Heroku deployed app: 
+Heroku deployed app: https://tranquil-ocean-87497.herokuapp.com/
