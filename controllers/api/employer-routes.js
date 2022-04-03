@@ -140,7 +140,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', withEmpAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Employer.destroy({
         where: {
             id: req.params.id

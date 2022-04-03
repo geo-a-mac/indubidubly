@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Employer, Job, User, Skill, } = require('../models');
-//onst { withEmpAuth } = require('../utils/auth');
+//const { withEmpAuth } = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Employer.findAll({
