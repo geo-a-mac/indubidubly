@@ -20,7 +20,6 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
     }
 
   if(jobSeekerSignUp.checked) {
-    console.log(skill_id);
     if (username && email && password && skill_id) {
       const response = await fetch('/api/users', {
         method: 'post',
@@ -59,7 +58,6 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
     .then(response => {
       if(response.ok) {
         document.location.replace('/empdashboard');
-        alert("success");
       } else {
         alert(response.statusText);
       }
@@ -91,7 +89,6 @@ async function loginFormHandler(event) {
         .then((response) => {
           if (response.ok) {
             document.location.replace("/userdashboard");
-            alert("success");
           } else {
             alert(response.statusText);
           }
@@ -113,7 +110,6 @@ async function loginFormHandler(event) {
         .then((response) => {
           if (response.ok) {
             document.location.replace("/empdashboard");
-            alert("success");
           } else {
             alert(response.statusText);
           }
