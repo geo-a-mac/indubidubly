@@ -23,4 +23,4 @@ const withEmpAuth = (req, res, next) => {
 };
   
 
-  module.exports = {  withAuth, withUseAuth, withEmpAuth };
+  module.exports = {  withAuth };
