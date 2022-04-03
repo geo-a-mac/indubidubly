@@ -116,7 +116,7 @@ router.post('/logout', (req, res) => {
     }
 });
 
-router.put('/:id', withUseAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
