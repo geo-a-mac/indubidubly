@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
       });
 });
 
-router.post('/', withEmpAuth, (req, res) => {
+router.post('/', (req, res) => {
     Job.create({
         title: req.body.title,
         information: req.body.information,
@@ -68,7 +68,7 @@ router.post('/', withEmpAuth, (req, res) => {
     });
 });
 
-router.put('/:id', withEmpAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Job.update(req.body, {
         individualHooks: true,
         where: {
@@ -88,7 +88,7 @@ router.put('/:id', withEmpAuth, (req, res) => {
         });
 });
 
-router.delete('/:id', withEmpAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Job.destroy({
         where: {
             id: req.params.id

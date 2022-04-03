@@ -21,6 +21,52 @@ img {
 	position: relative;
 	min-height: 30vh;
   }
+  
+  .container {
+	position:relative;
+	min-height: 60%;
+	display: center;
+}
+.img-fluid {
+	border-radius: 8px;
+	border:2px solid #a4508b;
+	box-shadow: 10px 10px 5px  #a4508b;
+}
+h2 a {
+	font-family: 'monofett, cursive';
+	font-style:italic; 
+	font-size:1em;
+	color:purple;
+}
+ h2 a:hover {
+	background-color: rgba(0, 157, 255, 0.3);
+	text-shadow: 0 0 0.05em #fff,0 0 0.3em lightpink, #fe05e1,;
+	color: #5e1b98; 
+ }
+
+h3 h4 h5 {
+	font-style:italic;
+	color: rgb(36, 0, 128)
+}
+
+h2 {
+	font-family: 'monofett, cursive';
+	font-style:italic;
+	color:purple;
+	text-shadow: 0 0 0.05em #FEA3AA,0 0 0.3em lightpink, #6A287E,;
+}
+
+.profileName .title {
+	font-family: 'monofett, cursive';
+	font-style: italic;
+	color:rgb(29, 10, 98);
+}
+
+.url {
+	font-family: 'monofett, cursive';
+	font-style:italic;
+	color: rgb(87, 138, 248);
+}
 
   .job-list .skill-list {
 	box-shadow: none;		
@@ -47,6 +93,17 @@ img {
 	box-shadow: none;		
 	font-weight: normal;
 	font-size: 13px;
+
+}
+.btn {
+	color: #fff;
+	background: #4298f4 !important;
+	border: none;
+	box-shadow: #422f6f;
+}
+.new-job-form {
+	background-color: rgb(203, 147, 147);
+	margin-left: 4%;
 }
 .navbar {
 	background: #fff;
@@ -80,8 +137,10 @@ img {
 	border-color: #e5e5e5;
 	box-shadow: 0 2px 8px rgba(0, 17, 255, 0.521);
 }
-.navbar a, .navbar a:active {
-	color: #888;
+
+.navbar a,
+.navbar a:active {
+	color: rgba(74, 147, 235, 0.777);
 	padding: 8px 20px;
 	background: transparent;
 	line-height: normal;
@@ -128,6 +187,17 @@ img {
 	width: 15px;
 	height: 15px;
 }
+
+input[type='radio']:after {
+	background-color: #4298f4;
+	width: 15px;
+	height: 15px;
+}
+
+input[type='radio']:checked:after {
+	background-color: #4298f4;
+}
+
 .dropdown-submenu {
     position: relative;
 	white-space: nowrap;
@@ -203,12 +273,20 @@ img {
 	}
 }
 /*navbar end*/
-
-/*footer to bottom*/
-#footer-bottom {
-	position:absolute;
-   padding-bottom:2.5rem;
-   width:100%;
-   height:94px;   /* Height of the footer */
-}
-
+#page-container {
+	position: relative;
+	min-height: 100vh;
+  }
+  
+  #content-wrap {
+	padding-bottom: 2.5rem;    /* Footer height */
+  }
+  
+  #footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: .5em;
+	color:#36013F;
+	text-shadow: 0 0 0.05em #FEA3AA, 0 0 0.3em #6A287E, 0 0 0.3em #6A287E;
+  }
