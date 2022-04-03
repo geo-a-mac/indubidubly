@@ -99,11 +99,14 @@ ol .job-post {
 	font-style:italic;
 	font-family: 'monofett, cursive';
 	font-size: 1em;
-	margin: 1;
+	margin: 1px;
     padding: 0.5;
 	color: black;
   }
 
+  .job-post {
+	  margin: 3%;
+  }
   ol .list {
 	box-shadow: 4px 2px 5px;		
 	font-weight: 2em;
@@ -320,6 +323,13 @@ input[type='radio']:checked:after {
 	.navbar .input-group {
 		width: 100%;
 	}
+}
+
+.employer-info {
+	border: #36013F;
+	width: 90%;
+	margin: 1%;
+
 }
 /*navbar end*/
 #page-container {
