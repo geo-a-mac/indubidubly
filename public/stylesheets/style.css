@@ -51,7 +51,8 @@ h2 a {
 	color: #5e1b98; 
  }
 
-h3 h4 h5 {
+h2 h3 h4 h5 h6 {
+	font-family: 'monofett, cursive';
 	font-style:italic;
 	color: rgb(36, 0, 128)
 }
@@ -170,7 +171,7 @@ ol .job-post {
 
 .navbar a,
 .navbar a:active {
-	color: #6ba9f4c6;
+	color: rgb(97, 151, 195);
 	padding: 8px 20px;
 	background: transparent;
 	line-height: normal;
@@ -327,7 +328,7 @@ input[type='radio']:checked:after {
   }
   
   #content-wrap {
-	padding-bottom: 2.5rem;   
+	padding-bottom: 2.5rem;    
   }
   
   #footer {

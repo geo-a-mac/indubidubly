@@ -1,9 +1,9 @@
 
 {{#if loggedIn}}
 <section>
-  <h2 class="profileName">{{employer.username}}</h2>
+  <h2 class="profileName title">{{employer.username}}</h2>
   <h3 id="employerId">Employer Id: {{employer.id}}</h3>
-  <h4>Your Job Posts</h>
+  <h4 class="title">Your Job Posts</h>
   <ol>
     {{#each employer.jobs}}
     <li class="job-post">
@@ -23,7 +23,11 @@
   <form class=" container">
       <div class="col ">
     <div class="row pb-1 ">
+<<<<<<< Updated upstream
       <label for="post-title title">Job Title  </label>
+=======
+      <label for="post-title" class="title">Job Title  </label>
+>>>>>>> Stashed changes
       <input type="text" id="title" class="ml-4" name="title" placeholder="Blacksmith"/>
     </div>
      <div class="row pb-1">
