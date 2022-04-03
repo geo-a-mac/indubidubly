@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {Employer, Job, Skill } = require('../../models');
-const { withEmpAuth } = require('../../utils/auth');
+//const { withEmpAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) =>{
     Job.findAll({
@@ -88,7 +88,7 @@ router.put('/:id',  (req, res) => {
         });
 });
 
-router.delete('/:id', withEmpAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Job.destroy({
         where: {
             id: req.params.id

@@ -1,9 +1,9 @@
 
 {{#if loggedIn}}
 <section>
-  <h2 class="profileName">{{employer.username}}</h2>
+  <h2 class="profileName title">  {{employer.username}}</h2>
   <h3 id="employerId">Employer Id: {{employer.id}}</h3>
-  <h4>Your Job Posts</h>
+  <h4 class="title">Your Job Posts</h>
   <ol>
     {{#each employer.jobs}}
     <li class="job-post">
@@ -23,7 +23,7 @@
   <form class=" container">
       <div class="col ">
     <div class="row pb-1 ">
-      <label for="post-title">Job Title  </label>
+      <label for="post-title title">Job Title  </label>
       <input type="text" id="title" class="ml-4" name="title" placeholder="Blacksmith"/>
     </div>
      <div class="row pb-1">
@@ -36,10 +36,11 @@
       <input type="number" id="payrate" class="ml-1" name="rate_of_pay" placeholder="1000.00" />
     </div>
     <div class="container" class="border-top-0">
-        <h4 class="col-5">Skill needed for this job</h4>
+      <h4 class="title">Skill needed for this job</h4>
+        <div class="col-7" >
             <ul class="row form-group d-flex flex-column">
                <li><input type="radio" value=1 id="1" name="skill">Javascript        </li>
-              <li><input type="radio" value=2 id="2" name="skill">        C#  </li>
+              <li><input type="radio" value=2 id="2" name="skill"> C#  </li>
              <li><input type="radio" value=3 name="skill">Front End Development</li>
               <li><input type="radio" value=4 
               name="skill">Back End Development</li>
@@ -56,9 +57,10 @@
               <li><input type="radio" value=10 
               name="skill">Sequelize</li>
              </ul>
+             </div>
      </div>
     </div>
-       <button type="submit" class="btn btn-primary" id="newJob">Create</button>
+       <button type="submit" class="btn btn-secondary " id="newJob">Create</button>
   </form>
 </section>
 

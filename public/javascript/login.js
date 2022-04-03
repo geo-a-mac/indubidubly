@@ -57,8 +57,7 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
       // check the response status
     .then(response => {
       if(response.ok) {
-        const profilePage = document.querySelector()
-        document.location.replace('/empdashboard');
+               document.location.replace('/empdashboard');
       } else {
         alert(response.statusText);
       }
@@ -114,6 +113,7 @@ async function loginFormHandler(event) {
             document.location.replace("/empdashboard");
           } else {
             alert(response.statusText);
+            return;
           }
         })
         .catch((err) => console.log(err));
@@ -131,7 +131,7 @@ document
   .addEventListener("submit", loginFormHandler);
 
 document
-  .querySelector("#signup")
-  .addEventListener("click", signupFormHandler);
+  .querySelector(".signup")
+  .addEventListener("submit", signupFormHandler);
 
 
