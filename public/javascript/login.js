@@ -20,7 +20,6 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
     }
 
   if(jobSeekerSignUp.checked) {
-    console.log(skill_id);
     if (username && email && password && skill_id) {
       const response = await fetch('/api/users', {
         method: 'post',
@@ -34,8 +33,7 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
       })
       .then(response => {
         if(response.ok) {
-          document.location.replace('/dashboard/');
-          alert("success");
+          document.location.replace('/userdashboard');
         } else {
           alert(response.statusText);
         }
@@ -90,8 +88,8 @@ async function loginFormHandler(event) {
       })
         .then((response) => {
           if (response.ok) {
-            document.location.replace("/dashboard");
-            alert("success");
+            document.location.replace("/userdashboard");
+
           } else {
             alert(response.statusText);
           }
@@ -112,8 +110,7 @@ async function loginFormHandler(event) {
       })
         .then((response) => {
           if (response.ok) {
-            document.location.replace("/dashboard");
-            alert("success");
+            document.location.replace("/empdashboard");
           } else {
             alert(response.statusText);
             return;
@@ -134,7 +131,7 @@ document
   .addEventListener("submit", loginFormHandler);
 
 document
-  .getElementsId("#signup")
+  .querySelector(".signup")
   .addEventListener("submit", signupFormHandler);
 
 

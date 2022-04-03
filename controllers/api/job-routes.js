@@ -68,7 +68,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id',  (req, res) => {
     Job.update(req.body, {
         individualHooks: true,
         where: {

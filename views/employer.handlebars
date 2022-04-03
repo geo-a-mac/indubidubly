@@ -1,0 +1,26 @@
+<div>
+    <section class="employers">
+        <div>
+            {{#each employers}}
+<section>
+  <h2 class="profileName" >{{this.username}}</h2>
+  <h5 class="url"><a href="{{this.url}}" target="_blank">{{this.url}}</a></h5>
+  <h3>Email:<a href="mailto:{{this.email}}"> {{ this.email}}</a></h3>
+  <h4>This employer is posted the following jobs:</h4>
+  <div>
+     <ol>
+           {{#each this.jobs}}
+            <li class="job-post">
+                <p class="title">{{this.title}}</p>
+                <p>Job Details: {{this.information}}</p>
+                <p>Pay is: {{this.rate_of_pay}}</p>
+                 <p>This Job requires: {{this.skill.skill_name}} in {{this.skill.skill_type}}</p>
+            </li>
+            {{/each}}
+      </ol>
+  </div>
+</section>
+{{/each}}
+        </div>
+    </section>
+</div>
