@@ -98,18 +98,22 @@ ol .job-post {
 }
 .btn {
 	border: #36013F;
-	
+}
+.new-job-form {
+	background-color: rgb(203, 147, 147);
+	margin-left: 4%;
 }
 .navbar {
-	background: #fff;
+	background: rgb(251, 203, 203);
 	padding-left: 16px;
 	padding-right: 16px;
 	border-bottom: 1px solid #dfe3e8;
 	border-radius: 0;
+	color:#1e22ff;
 }
 
 .navbar-light .navbar-toggler {
-	color: rgba(0, 0, 0, .5);
+	color: rgba(25, 1, 243, 0.5);
 	border-color: rgba(0, 0, 0, .1);
 	margin-left: 90%;
 }
@@ -293,7 +297,9 @@ ol .job-post {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: .5rem;            /* Footer height */
+	height: .5rem;
+	color:#36013F;
+	
   }
 /* footer to bottom
 #footer-bottom {

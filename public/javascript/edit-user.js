@@ -15,9 +15,7 @@ async function editFormHandler(event) {
             break;
         }
     }
-    console.log(skill_id);
-    console.log(id);
-
+   
 
     if(skill_id) {
         const response = await fetch(`/api/users/${id}`, {
