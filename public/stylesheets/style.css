@@ -41,15 +41,40 @@ p {
 }
 h2 a {
 	font-family: 'monofett, cursive';
-	font-style:italic;
+	font-style:italic; 
 	font-size:1em;
 	color:purple;
 }
  h2 a:hover {
 	background-color: rgba(0, 157, 255, 0.3);
 	text-shadow: 0 0 0.05em #fff,0 0 0.3em lightpink, #fe05e1,;
-	color: #a4508b; 
+	color: #5e1b98; 
  }
+
+h2 h3 h4 h5 h6 {
+	font-family: 'monofett, cursive';
+	font-style:italic;
+	color: rgb(36, 0, 128)
+}
+
+h2 {
+	font-family: 'monofett, cursive';
+	font-style:italic;
+	color:purple;
+	text-shadow: 0 0 0.05em #FEA3AA,0 0 0.3em lightpink, #6A287E,;
+}
+
+.profileName .title {
+	font-family: 'monofett, cursive';
+	font-style: italic;
+	color:rgb(29, 10, 98);
+}
+
+.url {
+	font-family: 'monofett, cursive';
+	font-style:italic;
+	color: rgb(87, 138, 248);
+}
 
 h3 h4 h5 {
 	font-style:italic;
@@ -74,11 +99,14 @@ ol .job-post {
 	font-style:italic;
 	font-family: 'monofett, cursive';
 	font-size: 1em;
-	margin: 1;
+	margin: 1px;
     padding: 0.5;
 	color: black;
   }
 
+  .job-post {
+	  margin: 3%;
+  }
   ol .list {
 	box-shadow: 4px 2px 5px;		
 	font-weight: 2em;
@@ -96,9 +124,7 @@ ol .job-post {
 	font-size: 13px;
 
 }
-.btn {
-	border: #36013F;
-}
+
 .new-job-form {
 	background-color: rgb(203, 147, 147);
 	margin-left: 4%;
@@ -139,7 +165,7 @@ ol .job-post {
 }
 
 .navbar .dropdown-menu {
-	color: #999;
+	color: rgb(48, 30, 104);
 	font-weight: normal;
 	border-radius: 1px;
 	border-color: #e5e5e5;
@@ -148,7 +174,7 @@ ol .job-post {
 
 .navbar a,
 .navbar a:active {
-	color: #888;
+	color: rgb(97, 151, 195);
 	padding: 8px 20px;
 	background: transparent;
 	line-height: normal;
@@ -189,6 +215,8 @@ ol .job-post {
 .navbar .btn-primary:focus {
 	color: #fff;
 	background: #ecaac4 !important;
+	color:  #490155;
+	text-shadow: 0 0 0.2em #d392cf, 0 0 0.2em #763e87;
 }
 
 .navbar .action-buttons .dropdown-toggle::after {
@@ -204,18 +232,32 @@ ol .job-post {
 	width: 15px;
 	height: 15px;
 }
+
+input[type='radio']:after {
+	background-color: #4298f4;
+	width: 15px;
+	height: 15px;
+}
+
+input[type='radio']:checked:after {
+	background-color: #4298f4;
+}
+
 .dropdown-submenu {
     position: relative;
 	white-space: nowrap;
 	
 }
-
+.btn-secondary {
+	background: rgba(110, 183, 247, 0.967) !important;
+	color:  #490155;
+	text-shadow: 0 0 0.2em #d392cf, 0 0 0.2em #763e87;
+}
 .dropdown-submenu>.dropdown-menu {
     top: 0;
     right: 100%;
     margin-top: -6px;
- 
-    -webkit-border-radius: 0 6px 6px 6px;
+     -webkit-border-radius: 0 6px 6px 6px;
     -moz-border-radius: 0 6px 6px;
     border-radius: 0 6px 6px 6px;
 	color:#422f6f;
@@ -236,7 +278,7 @@ ol .job-post {
     border-color: transparent;
     border-style: solid;
     border-width: 5px 0 5px 5px;
-    border-right-color: #ccc;
+    border-right-color: rgb(155, 183, 233);
     margin-top: 5px;
     margin-left: -20px;
 	
@@ -283,6 +325,12 @@ ol .job-post {
 	}
 }
 
+.employer-info {
+	border: #36013F;
+	width: 90%;
+	margin: 1%;
+
+}
 /*navbar end*/
 #page-container {
 	position: relative;
@@ -290,22 +338,14 @@ ol .job-post {
   }
   
   #content-wrap {
-	padding-bottom: 2.5rem;    /* Footer height */
+	padding-bottom: 2.5rem;    
   }
   
   #footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: .5rem;
+	height: .5em;
 	color:#36013F;
-	
+	text-shadow: 0 0 0.05em #FEA3AA, 0 0 0.3em #6A287E, 0 0 0.3em #6A287E;
   }
-/* footer to bottom
-#footer-bottom {
-	position: relative;
-	padding-bottom: 2.5rem;
-	width: 100%;
-	height: 94px;
-	/* Height of the footer */
-/* }  */

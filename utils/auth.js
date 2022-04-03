@@ -6,21 +6,21 @@ const withAuth = (req, res, next) => {
     }
 };
 
-const withUseAuth = (req, res, next) => {
-    if (!req.session.skill_id) {
-      res.redirect('/login');
-    } else {
-      next();
-    }
-  };
+// const withUseAuth = (req, res, next) => {
+//     if (!req.session.skill_id) {
+//       res.redirect('/login');
+//     } else {
+//       next();
+//     }
+//   };
   
-const withEmpAuth = (req, res, next) => {
-    if (!req.session.url) {
-      res.redirect('/');
-    } else {
-      next();
-    }
-};
+// const withEmpAuth = (req, res, next) => {
+//     if (!req.session.url) {
+//       res.redirect('/');
+//     } else {
+//       next();
+//     }
+// };
   
 
   module.exports = {  withAuth };
