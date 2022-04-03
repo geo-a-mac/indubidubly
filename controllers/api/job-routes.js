@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {Employer, Job, Skill } = require('../../models');
-const { withEmpAuth } = require('../../utils/auth');
+//const { withEmpAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) =>{
     Job.findAll({

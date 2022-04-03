@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Employer, Job, Skill } = require('../../models');
-const { withEmpAuth, withUseAuth } = require('../../utils/auth');
+//const { withEmpAuth, withUseAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Employer.findAll({
@@ -120,7 +120,7 @@ router.post('/logout', (req, res) => {
     }
 });
 
-router.put('/:id', withEmpAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Employer.update(req.body, {
         individualHooks: true,
         where: {

@@ -17,8 +17,8 @@ Indubidubly is a web based app designed to connect
 - Heroku
 
 ### Screenshot of home page
-<img width="1515" alt="Screen Shot 2022-04-02 at 12 39 06 PM" src="https://user-images.githubusercontent.com/36781549/161392630-5940edc2-8170-4cd1-8bce-da72d1e8351b.png">
+<img width="1435" alt="Screen Shot 2022-04-03 at 12 41 19 PM" src="https://user-images.githubusercontent.com/94029792/161438474-cda71895-4b80-4dec-957b-1664085c2d73.png">
 
 ### URLS
 Github: https://github.com/geo-a-mac/indubidubly
-Heroku deployed app: 
+Heroku deployed app: https://tranquil-ocean-87497.herokuapp.com/
