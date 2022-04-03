@@ -12,11 +12,12 @@
 </head>
 
 <body>
+   <div id="page-container">
+   <div id="content-wrap">
   <header>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand">
-        <img src="stylesheets/images/img.png" class="width: 200px height: 200px;" class="navbar-brand" />
+      <a href="/" class="navbar-brand"><img src="stylesheets/images/img.png" class="img-fluid" width="100px" height="100px;" />
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,9 +28,13 @@
             <a href="/" class="nav-item nav-link">Home</a>
             <div class="nav-item dropdown">
               <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Profiles</a>
-              <div class="dropdown-menu">
-                <a href="/jobseekers" class="dropdown-item">Job Seeker</a>
-                <a href="/employers" class="dropdown-item">Employer</a>
+              <div class="dropdown-menu row">
+                <a href="/jobseekers" class="dropdown-item">List of Job Seekers</a>
+                <a href="/employers" class="dropdown-item">List of Employers</a>
+                  {{#if loggedIn}}
+               <a href="/empdashboard" class="dropdown-item">Employer Dashboard</a> 
+               <a href="/userdashboard" class="dropdown-item">Job Seeker Dashboard</a> 
+                {{/if}}
               </div>
             </div>
           </div>
@@ -40,7 +45,7 @@
           <div class="navbar-nav ml-auto action-buttons">
             <div class="nav-item dropdown" data-toggle="dropdown">
               {{#if loggedIn}}
-              <button id="logout" class="btn">Logout</button>
+               <button id="logout" class="btn">Logout</button>
               {{else}}
               <a data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
               <div class="dropdown-menu action-form">
@@ -65,7 +70,7 @@
   <main>
     {{{ body }}}
   </main>
-
+</div>
   <!--footer-->
   <footer class="page-footer text-center text-white navbar-light bg-light" id="footer-bottom">
     <!-- Grid container -->
@@ -82,16 +87,17 @@
     </div>
     <!-- Copyright -->
   </footer>
-
+</div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+
   {{#unless loggedIn}}
   <script src="/javascript/login.js"></script>
-  {{/unless}}
+ {{/unless}}
 </body>
 
 </html>

@@ -1,8 +1,9 @@
 
 {{#if loggedIn}}
 <section>
-  <h2>{{employer.username}}</h2>
-  <h2>Your Posts</h2>
+  <h2 class="profileName">{{employer.username}}</h2>
+  <h3 id="employerId">Employer Id: {{employer.id}}</h3>
+  <h4>Your Job Posts</h>
   <ol>
     {{#each employer.jobs}}
     <li class="job-post">
@@ -17,7 +18,53 @@
 </section>
 {{/if}}
 
+<section class="new-job-form">
+  <h2>Create New Job Post</h2>
 
+  <form class="container">
+      <div class="col">
+    <div class="row">
+      <label for="post-title">Job Title</label>
+      <input type="text" id="title" name="title" />
+    </div>
+     <div>
+      <label for="job-info">Job Details</label>
+      <input type="text" id="title" name="information" />
+    </div>
+     <div>
+      <label for="payrate">Rate of Pay</label>
+      
+      <input type="number" id="payrate" name="rate_of_pay" placeholder="Decimal Number .00" />
+    </div>
+    <div class="container">
+        <h4 class="col"> Job Seeker Choose Skill</h4>
+            <ul class="row">
+               <li><input type="radio" value=1 id="1" 
+               name="skill">Javascript</li>
+              <li><input type="radio" value=2 id="2" 
+              name="skill">C#</li>
+             <li><input type="radio" value=3 
+              name="skill">Front End Development</li>
+              <li><input type="radio" value=4 
+              name="skill">Back End Development</li>
+             <li><input type="radio" value=5 
+             name="skill">Agile</li>
+              <li><input type="radio" value=6 
+              name="skill">Project Management</li>
+             <li><input type="radio" value=7 
+             name="skill">Node.js</li>
+              <li><input type="radio" value=8 
+              name="skill">Object-Oriented Programming</li>
+              <li><input type="radio" value=9 
+              name="skill">MySQL</li>
+              <li><input type="radio" value=10 
+              name="skill">Sequelize</li>
+                      </ul>
+           </div>
+    </div>
+       <button type="submit" class="btn" id="newJob">Create</button>
+  </form>
+</section>
 
-<!-- ADD This When Ready <script src="/javascript/add-job.js"></script>-->
+<script src='/javascript/addJobPost.js'></script> 
 

@@ -16,7 +16,7 @@ const withUseAuth = (req, res, next) => {
   
 const withEmpAuth = (req, res, next) => {
     if (!req.session.url) {
-      res.redirect('/login');
+      res.redirect('/');
     } else {
       next();
     }

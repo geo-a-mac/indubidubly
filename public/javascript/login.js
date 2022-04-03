@@ -57,6 +57,7 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
       // check the response status
     .then(response => {
       if(response.ok) {
+        const profilePage = document.querySelector()
         document.location.replace('/empdashboard');
       } else {
         alert(response.statusText);
@@ -89,6 +90,7 @@ async function loginFormHandler(event) {
         .then((response) => {
           if (response.ok) {
             document.location.replace("/userdashboard");
+
           } else {
             alert(response.statusText);
           }

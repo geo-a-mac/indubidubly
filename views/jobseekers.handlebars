@@ -1,19 +1,9 @@
- <div class="container">
-    <div class="text-center mt-5">
-      <div class="bg-image hover-overlay ripple">
-      
-       <div class="mask"></div>
-        </a>
-      </div>
 
-      <header>
-        <h1>
-          <a href="/">Indubidubly</a>
-        </h1>
-<ol class="jobs-list">
+<ol class="list">
+  <li>
   {{#each user as |user|}}
-<li>
-  <p>{{username}} has {{skill.skill_name}} skills ({{skill.skill_type}}. Contact at: <a href="mailto:{{email}}">{{email}}</a></p>
-</li>
+  <h3 class="profileName">{{username}}</h3>
+  <p> Has {{skill.skill_name}} skills {{skill.skill_type}}. Contact at: <a href="mailto:{{email}}">{{email}}</a></p>
    {{/each}}
+   </li>
 </ol>
