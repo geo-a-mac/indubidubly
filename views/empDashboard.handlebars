@@ -1,0 +1,68 @@
+
+{{#if loggedIn}}
+<section>
+  <h2 class="profileName title">  {{employer.username}}</h2>
+  <h3 id="employerId">Employer Id: {{employer.id}}</h3>
+  <h4 class="title">Your Job Posts</h>
+  <ol>
+    {{#each employer.jobs}}
+    <li class="job-post">
+      <p class="title">{{this.title}}</p>
+      <p>Job Details: {{this.information}}</p>
+      <p>Pay is: {{this.rate_of_pay}}</p>
+      <p>This Job requires: {{this.skill.skill_name}} in {{this.skill.skill_type}}</p>
+      </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+<section class="new-job-form card w-50 justify-center">
+  <h2 class="ml-4 title">Create New Job Post</h2>
+
+  <form class=" container">
+      <div class="col ">
+    <div class="row pb-1 ">
+      <label for="post-title title">Job Title  </label>
+      <input type="text" id="title" class="ml-4" name="title" placeholder="Blacksmith"/>
+    </div>
+     <div class="row pb-1">
+      <label for="job-info"> Job Details</label>
+      <input type="text" id="title" class="ml-2" name="information" placeholder="Build Mighty Swords"/>
+    </div>
+     <div class="row pb-1">
+      <label for="payrate">Rate of Pay </label>
+      
+      <input type="number" id="payrate" class="ml-1" name="rate_of_pay" placeholder="1000.00" />
+    </div>
+    <div class="container" class="border-top-0">
+      <h4 class="title">Skill needed for this job</h4>
+        <div class="col-7" >
+            <ul class="row form-group d-flex flex-column">
+               <li><input type="radio" value=1 id="1" name="skill">Javascript        </li>
+              <li><input type="radio" value=2 id="2" name="skill"> C#  </li>
+             <li><input type="radio" value=3 name="skill">Front End Development</li>
+              <li><input type="radio" value=4 
+              name="skill">Back End Development</li>
+             <li><input type="radio" value=5 
+             name="skill">Agile</li>
+              <li><input type="radio" value=6 
+              name="skill">Project Management</li>
+             <li><input type="radio" value=7 
+             name="skill">Node.js</li>
+              <li><input type="radio" value=8 
+              name="skill">Object-Oriented Programming</li>
+              <li><input type="radio" value=9 
+              name="skill">MySQL</li>
+              <li><input type="radio" value=10 
+              name="skill">Sequelize</li>
+             </ul>
+             </div>
+     </div>
+    </div>
+       <button type="submit" class="btn btn-secondary " id="newJob">Create</button>
+  </form>
+</section>
+
+<script src='/javascript/addJobPost.js'></script> 
+

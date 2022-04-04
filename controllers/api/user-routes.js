@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Skill } = require('../../models');
-const { withUseAuth } = require('../../utils/auth');
+//const { withUseAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    // console.log(req.body)
+    console.log('body', req.body)
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -63,6 +63,7 @@ router.post('/', (req, res) => {
           req.session.username = dbUserData.username;
           req.session.skill_id = dbUserData.skill_id;
           req.session.loggedIn = true;
+          req.session.userLoggedIn = true;
     
           res.json(dbUserData);
         });
@@ -84,7 +85,7 @@ router.post('/login', (req, res) => {
         res.status(400).json({ message: 'No user with that email address!' });
         return;
       }
-  
+
       const validPassword = dbUserData.checkPassword(req.body.password);
 
       if (!validPassword) {
@@ -97,6 +98,7 @@ router.post('/login', (req, res) => {
         req.session.username = dbUserData.username;
         req.session.skill_id = dbUserData.skill_id;
         req.session.loggedIn = true;
+        req.session.userLoggedIn = true;
     
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
@@ -114,7 +116,7 @@ router.post('/logout', (req, res) => {
     }
 });
 
-router.put('/:id', withUseAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -134,7 +136,7 @@ router.put('/:id', withUseAuth, (req, res) => {
         });
 });
 
-router.delete('/:id', withUseAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     User.destroy({
         where: {
             id: req.params.id

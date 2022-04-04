@@ -45,3 +45,4 @@ Employer.hasMany(Message, {
 
 
 module.exports = { User, Employer, Skill, Job, Message  };
+

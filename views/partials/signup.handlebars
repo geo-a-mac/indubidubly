@@ -1,15 +1,60 @@
-<form class="signup-form" action="#" method="post">
+<div>
+
+<form class="signup-form">
     <p class="hint-text">Fill in this form to create your account!</p>
     <div class="form-group">
         <input type="text" id="username-signup" class="form-control" placeholder="Username" required="required">
     </div>
+     <div class="form-group">
+         <label>
+        <span>Employer</span> <input type="radio" value="employer" name="usertype-signup" id="employer" class="form-control radio" required="required">
+        </label>
+         <div class="form-group">
+        <input type="text" id="employerURL"  class="form-control" placeholder="Employer URL Required">
+    </div>
+    </div>
+ <div class="form-group">
+        <label>
+        <span>Job Seeker</span> <input type="radio" value="jobSeeker" name="usertype-signup" id="job-seeker" class="form-control radio" required="required">
+         </label>
+      <div>
+         <li class="divider ">
+              <li class="dropdown-submenu dropleft">
+              <a> Job Seeker Choose Skill</a>
+            <ul class="dropdown-menu row">
+               <li><input type="radio" value=1 id="1" 
+               name="skill">Javascript</li>
+              <li><input type="radio" value=2 id="2" 
+              name="skill">C#</li>
+             <li><input type="radio" value=3 id="skillId3"
+              name="skill">Front End Development</li>
+              <li><input type="radio" value=4 id="skillId4"
+              name="skill">Back End Development</li>
+             <li><input type="radio" value=5 id="skillId5"
+             name="skill">Agile</li>
+              <li><input type="radio" value=6 id="skillId6"
+              name="skill">Project Management</li>
+             <li><input type="radio" value=7 id="skillId7"
+             name="skill">Node.js</li>
+              <li><input type="radio" value=8 id="skillId8"
+              name="skill">Object-Oriented Programming</li>
+              <li><input type="radio" value=9 id="skillId9"
+              name="skill">MySQL</li>
+              <li><input type="radio" value=10 id="skillId10"
+              name="skill">Sequelize</li>
+             
+         </ul>
+         </li>
+    </div>
+    </div>
+   
     <div class="form-group">
         <input type="text" id="email-signup" class="form-control" placeholder="Email" required="required">
     </div>
     <div class="form-group">
         <input type="password" id="password-signup" class="form-control" placeholder="Password" required="required">
     </div>
-    <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+  
 </form>
-
-<script src="/javascript/login.js"></script>
+ <p type="submit" id="signup" class="signup btn btn-secondary btn-block" value="sign up" >Sign Up</p>
+</div>

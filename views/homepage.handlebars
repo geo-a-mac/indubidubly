@@ -1,15 +1,24 @@
-<ol class="jobs-list">
-  {{#each job}}
-  <li>
-    <article class="job-post">
-      <div class="title">
-        <span>{{post}}</span>
+  <div class="container">
+    <div class="text-center mt-5">
+      <div class="bg-image hover-overlay ripple">
+      
+       <div class="mask"></div>
+        </a>
       </div>
-      <div>
-        Posted by {{employer.username}} on
-        {{post.created_at}}
+
+      <header>
+        <h1>
+          <a href="/">Indubidubly</a>
+        </h1>
+        </header>
       </div>
-    </article>
-  </li>
-  {{/each}}
+    </div>
+</div>
+
+<ol class="list">
+  {{#each job as |job|}}
+<li>
+  {{> job-info job}}
+</li>
+   {{/each}}
 </ol>

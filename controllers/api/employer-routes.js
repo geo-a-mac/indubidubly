@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Employer, Job, Skill} = require('../../models');
-const { withEmpAuth, withUseAuth } = require('../../utils/auth');
+const { Employer, Job, Skill } = require('../../models');
+//const { withEmpAuth, withUseAuth } = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Employer.findAll({
@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbEmployerData => res.json(dbEmployerData))
-        .catch(err =>{
+        .then(dbEmployerData => res.json(dbEmployerData))
+        .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
@@ -40,17 +40,17 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-    .then(dbEmployerData => {
-        if (!dbEmployerData) {
-          res.status(404).json({ message: 'No Employer found with this id' });
-          return;
-        }
-        res.json(dbEmployerData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+        .then(dbEmployerData => {
+            if (!dbEmployerData) {
+                res.status(404).json({ message: 'No Employer found with this id' });
+                return;
+            }
+            res.json(dbEmployerData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 })
 
 router.post('/', (req, res) => {
@@ -66,6 +66,7 @@ router.post('/', (req, res) => {
         req.session.username = dbEmployerData.username;
         req.session.url = dbEmployerData.url;
         req.session.loggedIn = true;
+        req.session.employerLoggedIn = true;
  
         res.json(dbEmployerData);
        });
@@ -74,6 +75,7 @@ router.post('/', (req, res) => {
        console.log(err);
        res.status(500).json(err);
    });
+
 });
 
 router.post('/login', (req, res) => {
@@ -83,49 +85,52 @@ router.post('/login', (req, res) => {
         }
     }).then(dbEmployerData => {
         if (!dbEmployerData) {
-          res.status(400).json({ message: 'No employer with that email address!' });
-          return;
+            res.status(400).json({ message: 'No employer with that email address!' });
+            return;
         }
-    
+
         const validPassword = dbEmployerData.checkPassword(req.body.password);
-    
+
         if (!validPassword) {
-          res.status(400).json({ message: 'Incorrect password!' });
-          return;
+            res.status(400).json({ message: 'Incorrect password!' });
+            return;
         }
         req.session.save(() => {
             req.session.user_id = dbEmployerData.id;
             req.session.username = dbEmployerData.username;
             req.session.url = dbEmployerData.url;
             req.session.loggedIn = true;
+
+            req.session.employerLoggedIn = true;
     
         res.json({ employer: dbEmployerData, message: 'You are now logged in!' });
       });
+
     });
 });
 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
     }
     else {
-      res.status(404).end();
+        res.status(404).end();
     }
 });
 
-router.put('/:id', withEmpAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Employer.update(req.body, {
         individualHooks: true,
         where: {
             id: req.params.id
         }
-        })
+    })
         .then(dbEmployerData => {
             if (!dbEmployerData) {
-            res.status(404).json({ message: 'No employer found with this id' });
-            return;
+                res.status(404).json({ message: 'No employer found with this id' });
+                return;
             }
             res.json(dbEmployerData);
         })
@@ -135,23 +140,23 @@ router.put('/:id', withEmpAuth, (req, res) => {
         });
 });
 
-router.delete('/:id', withUseAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Employer.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(dbEmployerData => {
-        if (!dbEmployerData) {
-            res.status(404).json({ message: 'No Employer found with this ID' });
-            return;
-        }
-        res.json(dbEmployerData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbEmployerData => {
+            if (!dbEmployerData) {
+                res.status(404).json({ message: 'No Employer found with this ID' });
+                return;
+            }
+            res.json(dbEmployerData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 
