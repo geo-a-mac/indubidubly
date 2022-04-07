@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { User, Skill, } = require('../models');
 //const {withUseAuth} = require('../utils/auth');
 
+//Retrieve all users information for their 
 router.get('/',  (req, res) => {
     User.findAll({
         where: {

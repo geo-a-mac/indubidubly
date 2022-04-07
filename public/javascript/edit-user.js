@@ -6,10 +6,11 @@ async function editFormHandler(event) {
         document.querySelector("#user-id").innerHTML.toString().split(' ').length - 1];
 
    
-
+//Gather all information from Radio button
     const radioButtons = document.querySelectorAll('input[name="skill"]');
     let skill_id;
     for (const radioButton of radioButtons) {
+        //look for the Radio button that is checked and assign the skill_id value
         if (radioButton.checked) {
             skill_id = radioButton.value;
             break;

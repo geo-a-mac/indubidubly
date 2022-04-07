@@ -1,3 +1,5 @@
+
+//Take all information entered into the Add Job form 
 async function newFormHandler(event) {
     event.preventDefault();
   
@@ -20,6 +22,7 @@ async function newFormHandler(event) {
 
 console.log(title, information, rate_of_pay, employer_id, skill_id)
 
+//post all input into the Job table
 const response = await fetch('/api/jobs/', {
       method: 'POST',
       body: JSON.stringify({

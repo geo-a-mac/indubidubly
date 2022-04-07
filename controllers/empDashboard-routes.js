@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { Employer, Job, User, Skill, } = require('../models');
 //const { withEmpAuth } = require('../utils/auth');
 
+//Retrieve Employer info for their dashboard
 router.get('/', (req, res) => {
     Employer.findAll({
         where: {

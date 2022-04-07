@@ -170,6 +170,7 @@ router.get('/employers', (req, res) => {
     });
 });
 
+// Get once specific employer info by ID
 router.get('/employers/:id', (req, res) => {
     Employer.findOne({
         where: {
