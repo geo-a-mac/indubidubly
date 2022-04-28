@@ -17,7 +17,8 @@ Indubidubly is a web based app designed to connect
 - Heroku
 
 ### Screenshot of home page
-<img width="1435" alt="Screen Shot 2022-04-03 at 12 41 19 PM" src="https://user-images.githubusercontent.com/94029792/161438474-cda71895-4b80-4dec-957b-1664085c2d73.png">
+![Screen Shot 2022-04-27 at 9 04 27 PM](https://user-images.githubusercontent.com/94029792/165655839-45b800f7-2ac3-471b-9b9f-7914b6a812d6.png)
+
 
 ### URLS
 Github: https://github.com/geo-a-mac/indubidubly
