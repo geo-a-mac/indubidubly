@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {Employer, Job, Skill } = require('../../models');
 //const { withEmpAuth } = require('../../utils/auth');
 
+//Retrieve all information from jobs table
 router.get('/', (req, res) =>{
     Job.findAll({
         attributes: ['id', 'title', 'information', 'rate_of_pay', 'employer_id', 'skill_id', 'created_at', 'updated_at'],
@@ -23,6 +24,7 @@ router.get('/', (req, res) =>{
         });
 }); 
 
+//Call all information for one specific job posting
 router.get('/:id', (req, res) => {
     Job.findOne({
         where: {
@@ -68,6 +70,7 @@ router.post('/', (req, res) => {
     });
 });
 
+//This allows Employer to change specific information on a job post they created
 router.put('/:id',  (req, res) => {
     Job.update(req.body, {
         individualHooks: true,
@@ -88,6 +91,7 @@ router.put('/:id',  (req, res) => {
         });
 });
 
+//Employer can delete a job post they created
 router.delete('/:id', (req, res) => {
     Job.destroy({
         where: {

@@ -1,3 +1,5 @@
+
+//Gather all information entered into sign up form to crete new profile
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -10,15 +12,17 @@ async function signupFormHandler(event) {
 
 const url = document.querySelector("#employerURL").value;
  
+//Gather all information from Radio buttons
 const radioButtons = document.querySelectorAll('input[name="skill"]');
     let skill_id;
+    //look for the Radio button that is checked and assign the skill_id value
     for (const radioButton of radioButtons) {
         if (radioButton.checked) {
             skill_id = radioButton.value;
             break;
         }
     }
-
+//if the Job Seeker radio button is checked post the information to the User table
   if(jobSeekerSignUp.checked) {
     if (username && email && password && skill_id) {
       const response = await fetch('/api/users', {
@@ -41,6 +45,7 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
       .catch(err => console.log(err));
     }
   }
+ //If the Employer radio button is checked add all input info to the Employer Table
   else if (employerSignUp.checked) {
     console.log("employer");
     if (username && email && password && url) {
@@ -67,6 +72,7 @@ const radioButtons = document.querySelectorAll('input[name="skill"]');
 }
 }
 
+//Log In event function
 async function loginFormHandler(event) {
   event.preventDefault();
 
@@ -75,6 +81,7 @@ async function loginFormHandler(event) {
   const employer = document.querySelector("#employer-sign-in");
   const jobSeeker = document.querySelector("#job-seeker-sign-in");
 
+  //if the Jobseekr radio button is selected fetch the user table to grab that users information to log in
   if (jobSeeker.checked) {
     console.log(jobSeeker.value);
     if (email && password) {
@@ -97,6 +104,7 @@ async function loginFormHandler(event) {
         .catch((err) => console.log(err));
     }
   }
+  //if the Employer radio button is selected fetch the user table to grab that profile information to log in
   if (employer.checked) {
     console.log(employer.value);
     if (email && password) {
@@ -126,10 +134,12 @@ $(document).on("click", ".action-buttons .dropdown-menu", function (e) {
   e.stopPropagation();
 });
 
+//Log In submit event
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
 
+  //sign up click event
 document
   .querySelector(".signup")
   .addEventListener("click", signupFormHandler);

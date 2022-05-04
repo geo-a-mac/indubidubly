@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Employer, Job, Skill } = require('../../models');
 //const { withEmpAuth, withUseAuth } = require('../../utils/auth');
 
+// Retrieve all Employer information
 router.get('/', (req, res) => {
     Employer.findAll({
         attributes: ['id', 'username', 'email', 'url',],
@@ -53,6 +54,7 @@ router.get('/:id', (req, res) => {
         });
 })
 
+//Add a new Employer profile
 router.post('/', (req, res) => {
    Employer.create({
        username: req.body.username,
@@ -78,6 +80,7 @@ router.post('/', (req, res) => {
 
 });
 
+//Allow Employer to log into their dashboard
 router.post('/login', (req, res) => {
     Employer.findOne({
         where: {
@@ -109,6 +112,7 @@ router.post('/login', (req, res) => {
     });
 });
 
+//Allow Employer to Log out of dashboard
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
@@ -120,6 +124,7 @@ router.post('/logout', (req, res) => {
     }
 });
 
+//Call data for one specific employer
 router.put('/:id', (req, res) => {
     Employer.update(req.body, {
         individualHooks: true,
@@ -140,6 +145,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
+//Delete employer profile
 router.delete('/:id', (req, res) => {
     Employer.destroy({
         where: {
