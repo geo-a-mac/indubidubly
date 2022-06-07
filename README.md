@@ -1,6 +1,6 @@
 ## Indubitably
 
-Indubitably is a web based app designed to connect 
+Indubitably is a web based app designed to connect Job Seekers and Employers through skills alone.
 
 ### Technologies
 - HTML
